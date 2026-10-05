@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | Nova Tech Solutions{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+        <p class="eyebrow">Who We Are</p>
+        <h1>About Nova Tech</h1>
+    </div>
+</section>
+
+<section class="about-content container">
+    <div class="about-grid">
+        <div class="about-text">
+            <p class="eyebrow">Our Story</p>
+            <h2>Precision. Innovation. Trust.</h2>
+            <p>
+                Founded over a decade ago, Nova Tech Solutions has partnered with
+                startups and enterprises alike to turn bold ideas into robust,
+                elegant technology. We believe great software isn't just functional —
+                it's crafted with the same care as any fine work of design.
+            </p>
+            <p>
+                Our team of engineers, architects, and strategists work closely
+                with every client to deliver solutions that don't just meet
+                expectations — they redefine what's possible.
+            </p>
+        </div>
+    </div>
+
+    <div class="values">
+        <div class="value-card">
+            <h3>Excellence</h3>
+            <p>Every line of code is written with precision and purpose.</p>
+        </div>
+        <div class="value-card">
+            <h3>Integrity</h3>
+            <p>Transparent partnerships built on trust and accountability.</p>
+        </div>
+        <div class="value-card">
+            <h3>Innovation</h3>
+            <p>We stay ahead of the curve, so your business always does too.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta container">
+    <h2>Let's build your next big idea</h2>
+    <a href="{% url 'contact' %}" class="btn btn-outline">Start a Project</a>
+</section>
+
+{% endblock %}

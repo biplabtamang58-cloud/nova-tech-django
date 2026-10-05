@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | Nova Tech Solutions{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container hero-inner">
+        <p class="eyebrow">Premium Technology Consulting</p>
+        <h1>Engineering the <span>Future</span> of Your Business</h1>
+        <p class="tagline">We design, build, and scale intelligent software solutions for ambitious companies.</p>
+        <a href="{% url 'contact' %}" class="btn">Book a Consultation</a>
+    </div>
+</section>
+
+<section class="services container">
+    <p class="eyebrow center">What We Offer</p>
+    <h2 class="center">Our Services</h2>
+
+    <div class="service-grid">
+        {% for service in services %}
+        <a href="{% url 'service_detail' service.slug %}" class="service-card">
+            <div class="service-number">{{ service.number }}</div>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.summary }}</p>
+            <span class="service-link">Learn more →</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="stats">
+    <div class="container stats-grid">
+        <div class="stat">
+            <h3>150+</h3>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="stat">
+            <h3>12</h3>
+            <p>Years of Expertise</p>
+        </div>
+        <div class="stat">
+            <h3>98%</h3>
+            <p>Client Retention</p>
+        </div>
+        <div class="stat">
+            <h3>24/7</h3>
+            <p>Dedicated Support</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta container">
+    <h2>Ready to elevate your business?</h2>
+    <p>Let's build something exceptional together.</p>
+    <a href="{% url 'contact' %}" class="btn btn-outline">Get in Touch</a>
+</section>
+
+{% endblock %}

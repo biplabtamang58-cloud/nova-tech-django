@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us | Nova Tech Solutions{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+        <p class="eyebrow">Get In Touch</p>
+        <h1>Contact Us</h1>
+    </div>
+</section>
+
+<section class="contact-content container">
+    <div class="contact-grid">
+
+        <div class="contact-info">
+            <h2>Let's Talk</h2>
+            <p>Tell us about your project and we'll get back to you within 24 hours.</p>
+
+            <div class="info-item">
+                <span>Email</span>
+                <p>hello@novatech.com</p>
+            </div>
+            <div class="info-item">
+                <span>Phone</span>
+                <p>+977-98XXXXXXXX</p>
+            </div>
+            <div class="info-item">
+                <span>Office</span>
+                <p>Kathmandu, Nepal</p>
+            </div>
+
+            <div class="social-links">
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">Twitter</a>
+                <a href="#" target="_blank">Instagram</a>
+            </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="form-message">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <form method="post" action="{% url 'contact' %}" class="contact-form">
+                {% csrf_token %}
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company">
+
+                <label for="message">Project Details</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

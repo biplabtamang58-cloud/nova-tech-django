@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ service.title }} | Nova Tech Solutions{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+        <p class="eyebrow">Service {{ service.number }}</p>
+        <h1>{{ service.title }}</h1>
+        <p class="service-summary">{{ service.summary }}</p>
+    </div>
+</section>
+
+<section class="service-detail container">
+    <div class="service-detail-grid">
+        <div class="service-detail-main">
+            <p class="eyebrow">Overview</p>
+            {% for paragraph in service.details_list %}
+                <p class="service-paragraph">{{ paragraph }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="service-detail-side">
+            <p class="eyebrow">What's Included</p>
+            <ul class="feature-list">
+                {% for feature in service.features_list %}
+                    <li>{{ feature }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="back-link">
+        <a href="{% url 'index' %}">← Back to all services</a>
+    </div>
+</section>
+
+<section class="other-services container">
+    <p class="eyebrow center">Explore More</p>
+    <h2 class="center">Other Services</h2>
+
+    <div class="service-grid">
+        {% for other in other_services %}
+        <a href="{% url 'service_detail' other.slug %}" class="service-card">
+            <div class="service-number">{{ other.number }}</div>
+            <h3>{{ other.title }}</h3>
+            <p>{{ other.summary }}</p>
+            <span class="service-link">Learn more →</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="cta container">
+    <h2>Interested in {{ service.title }}?</h2>
+    <p>Let's discuss how this can work for your business.</p>
+    <a href="{% url 'contact' %}" class="btn btn-outline">Get in Touch</a>
+</section>
+
+{% endblock %}
